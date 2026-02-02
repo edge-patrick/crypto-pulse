@@ -11,7 +11,7 @@ struct Constants {
         
         struct CoinGecko {
             #if DEBUG
-            static let key = "" // Your API key here
+            static let key = "" // Your API key here - this is just for demo, never hardcode your API keys in production
             static let baseURL = "https://api.coingecko.com/api/v3"
             #else
             static let key = "prod-key"
