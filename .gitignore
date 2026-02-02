@@ -1,0 +1,66 @@
+# Xcode
+#
+# Reference: https://github.com/github/gitignore/blob/main/Swift.gitignore
+
+# Build artifacts
+build/
+DerivedData/
+
+# Personal settings
+xcuserdata/
+
+# Xcode Patch
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.playground.xcworkspace
+
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# .build/
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# if you're sure you want to do it, un-comment the following line.
+# Pods/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Build/
+
+# AccuRev Static Code Analysis
+#
+# .static_analysis/
+
+# fastlane
+#
+# It is recommended to not store the packages in the repo. Special care
+# must be taken during the deployment process to ensure the correct
+# package version is used.
+# fastlane/report.xml
+# fastlane/Preview.html
+# fastlane/screenshots/**/*.png
+# fastlane/test_output
+
+# Code Injection
+#
+# After running injection / injecting in your project, it creates
+# a bundle that should be ignored.
+iOSInjectionProject/
+
+# macOS
+.DS_Store

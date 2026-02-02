@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct crypto_pulseApp: App {
+    private let dependencies = AppDependencies.services
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environment(\.dependencies, dependencies)
         }
     }
 }
