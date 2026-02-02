@@ -1,6 +1,6 @@
 # Crypto Pulse Architecture
 
-Welcome to the **Crypto Pulse** codebase! This document is designed to help you understand how the app is structured, why we chose this architecture, and how to work with it.
+Welcome to the **Crypto Pulse** codebase! This is a demo project which showcases implementation of MVVM architecture for a SwiftUI project. This document is designed to help you understand how the app is structured, why we chose this architecture, and how to work with it.
 
 ## 🏗 Architecture Overview
 
@@ -80,7 +80,3 @@ When adding a new feature (e.g., "User Favorites"):
 5. **ViewModel**: Create a ViewModel that takes the service as a dependency.
 6. **View**: Build the SwiftUI view and connect it to the ViewModel.
 7. **Test**: Write a unit test using a mock version of your service.
-
----
-
-Happy coding! If you have questions, feel free to ask the team.
