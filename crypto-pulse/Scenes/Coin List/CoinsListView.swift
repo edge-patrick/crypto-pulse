@@ -10,11 +10,9 @@ import SwiftUI
 struct CoinsListView: View {
     
     @State private var viewModel: CoinsListViewModel
-    private let service: CoinServiceProtocol
 
-    init(service: CoinServiceProtocol) {
-        self.service = service
-        _viewModel = State(wrappedValue: CoinsListViewModel(service: service))
+    init() {
+        _viewModel = State(wrappedValue: CoinsListViewModel())
     }
 
     var body: some View {
@@ -36,7 +34,7 @@ struct CoinsListView: View {
         case .loaded(let coins):
             List(coins) { coin in
                 NavigationLink {
-                    CoinDetailView(coinId: coin.id, service: service)
+                    CoinDetailView(coinId: coin.id)
                 } label: {
                     CoinRowView(coin: coin)
                 }
@@ -106,12 +104,5 @@ private struct CoinRowView: View {
 }
 
 #Preview {
-    CoinsListView(
-        service: CoinService(
-            apiClient: APIService(
-                baseURL: Constants.API.CoinGecko.baseURL,
-                headers: ["x-cg-demo-api-key": Constants.API.CoinGecko.key]
-            )
-        )
-    )
+    CoinsListView()
 }

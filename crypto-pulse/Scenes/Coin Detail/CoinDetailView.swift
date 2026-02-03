@@ -10,8 +10,8 @@ import SwiftUI
 struct CoinDetailView: View {
     @State private var viewModel: CoinDetailViewModel
 
-    init(coinId: String, service: CoinServiceProtocol) {
-        _viewModel = State(wrappedValue: CoinDetailViewModel(coinId: coinId, service: service))
+    init(coinId: String) {
+        _viewModel = State(wrappedValue: CoinDetailViewModel(coinId: coinId))
     }
 
     var body: some View {

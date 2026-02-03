@@ -14,7 +14,6 @@ struct crypto_pulseApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environment(\.dependencies, dependencies)
         }
     }
 }

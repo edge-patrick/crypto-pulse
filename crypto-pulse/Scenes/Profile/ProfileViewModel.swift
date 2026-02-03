@@ -16,9 +16,9 @@ final class ProfileViewModel {
     private let service: UserServiceProtocol
     private let userId: Int
     
-    init(userId: Int = 1, service: UserServiceProtocol) {
+    init(userId: Int = 1, service: UserServiceProtocol? = nil) {
         self.userId = userId
-        self.service = service
+        self.service = service ?? AppDependencies.services.userService
     }
     
     func load() async {

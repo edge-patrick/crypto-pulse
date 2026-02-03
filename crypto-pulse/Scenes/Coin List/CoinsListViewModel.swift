@@ -16,8 +16,8 @@ final class CoinsListViewModel {
 
     private let service: CoinServiceProtocol
 
-    init(service: CoinServiceProtocol) {
-        self.service = service
+    init(service: CoinServiceProtocol? = nil) {
+        self.service = service ?? AppDependencies.services.coinService
     }
 
     func load() async {

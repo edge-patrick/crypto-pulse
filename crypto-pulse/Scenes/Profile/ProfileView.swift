@@ -10,8 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @State private var viewModel: ProfileViewModel
     
-    init(service: UserServiceProtocol) {
-        _viewModel = State(wrappedValue: ProfileViewModel(service: service))
+    init() {
+        _viewModel = State(wrappedValue: ProfileViewModel())
     }
     
     var body: some View {
@@ -156,11 +156,5 @@ private struct InfoRow: View {
 }
 
 #Preview {
-    ProfileView(
-        service: UserService(
-            apiClient: APIService(
-                baseURL: Constants.API.JSONPlaceholder.baseURL
-            )
-        )
-    )
+    ProfileView()
 }

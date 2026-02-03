@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.dependencies) private var dependencies
 
     var body: some View {
         TabView {
             Tab("Coins", systemImage: "bitcoinsign.circle.fill") {
-                CoinsListView(service: dependencies.coinService)
+                CoinsListView()
             }
             
             Tab("Profile", systemImage: "person.fill") {
-                ProfileView(service: dependencies.userService)
+                ProfileView()
             }
         }
     }
@@ -25,5 +24,4 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(\.dependencies, .services)
 }

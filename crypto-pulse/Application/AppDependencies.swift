@@ -25,7 +25,3 @@ struct AppDependencies {
         )
     )
 }
-
-extension EnvironmentValues {
-    @Entry var dependencies: AppDependencies = .services
-}

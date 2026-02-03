@@ -16,9 +16,9 @@ final class CoinDetailViewModel {
     private let service: CoinServiceProtocol
     private let coinId: String
 
-    init(coinId: String, service: CoinServiceProtocol) {
+    init(coinId: String, service: CoinServiceProtocol? = nil) {
+        self.service = service ?? AppDependencies.services.coinService
         self.coinId = coinId
-        self.service = service
     }
 
     func load() async {
