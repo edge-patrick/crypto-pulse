@@ -10,9 +10,9 @@ The app follows **Clean Architecture** principles combined with the **MVVM (Mode
 
 ```text
 crypto-pulse/
-├── Application/          # App entry point & Dependency Injection setup
-├── Models/              # Plain Data Objects (DTOs)
-├── Networking/          # Generic API client & Endpoint definitions
+├── Application/        # App entry point & Dependency Injection setup
+├── Models/             # Plain Data Objects (DTOs)
+├── Networking/         # Generic API client & Endpoint definitions
 ├── Routers/            # Feature-specific API routing (URL construction)
 ├── Services/           # Business logic & Data fetching (Domain layer)
 ├── Scenes/             # UI Features (Views & ViewModels)
@@ -80,3 +80,49 @@ When adding a new feature (e.g., "User Favorites"):
 5. **ViewModel**: Create a ViewModel that takes the service as a dependency.
 6. **View**: Build the SwiftUI view and connect it to the ViewModel.
 7. **Test**: Write a unit test using a mock version of your service.
+
+## 🔄 Regenerating the Xcode Project (XcodeGen)
+
+We do not commit the _.xcodeproj_ file manually.
+Instead, the project is generated from a _project.yml_ specification using _XcodeGen_.
+
+Just execute `./makeFile.sh` and you'll be leaded on the setup.
+
+![images/Xcodegen.png](images/Xcodegen.png)
+
+Why _XcodeGen_?
+
+* Prevents merge conflicts in _.xcodeproj_
+* Makes project structure declarative and version-controlled
+* Easy to add targets, build settings, or dependencies
+* Keeps CI setup simple and reproducible
+
+### Compile error?
+
+![images/InfoPListBug.png](images/InfoPListBug.png)
+
+On some Xcode versions, theres a bug, and after we regenerate the project, we migth have to remove the _Info.plist_ file from the app target.
+
+## ⚙️ Build Configuration with .xcconfig
+
+Instead of hardcoding build settings inside Xcode, we use _.xcconfig_ files.
+
+Why _.xcconfig?_
+
+* Cleaner project.yml
+* Shared build settings across targets
+* Easy environment switching (Dev / Staging / Production)
+* Better separation of configuration from code
+
+Structure:
+
+```
+Configurations/
+├── base.xcconfig			
+├── pods.xcconfig
+├── product-version.xcconfig
+├── debug.xcconfig
+└── release.xcconfig
+```
+
+

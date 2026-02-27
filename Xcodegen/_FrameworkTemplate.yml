@@ -1,0 +1,14 @@
+targetTemplates:
+  Framework:
+    platform: iOS
+    deploymentTarget: '18.0'
+    type: framework
+    settings:
+      base:
+        MARKETING_VERSION: 1.0
+        ENABLE_MODULE_VERIFIER: YES
+        MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS: 'gnu11 gnu++14'
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+        CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+        #FRAMEWORK_SEARCH_PATHS: $(inherited) $(SRCROOT)/Carthage/Build/iOS

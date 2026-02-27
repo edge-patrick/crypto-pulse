@@ -1,0 +1,7 @@
+targetTemplates:
+  UITest:
+    platform: iOS
+    deploymentTarget: '18.0'
+    type: bundle.ui-testing
+    settings:
+      #TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppName.app/HitHAppNameappens"

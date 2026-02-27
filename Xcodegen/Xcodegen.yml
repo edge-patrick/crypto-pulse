@@ -1,0 +1,83 @@
+name: CryptoPulse
+
+options:
+  bundleIdPrefix: com.patrikroh
+  xcodeVersion: '15.0.1'
+  deploymentTarget: '18.0'
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  findCarthageFrameworks: false
+  minimumXcodeGenVersion: '2.18.0'
+  
+fileGroups:
+  - ../Configuration
+#  - ../XcodeGen
+
+include:
+  - _FrameworkTemplate.yml
+  - _UnitTestTemplate.yml
+  - _UITestTemplate.yml
+  - _AggregateTargets.yml
+  
+settings:
+  base:
+    IPHONEOS_DEPLOYMENT_TARGET: 18.0
+    SWIFT_VERSION: 5.10
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+
+aggregateTargets:
+  SwiftFormat:
+    buildScripts:
+       - script: |
+                 scripts/executeSwiftFormat.sh
+         name: "SwiftFormat"
+         shell: /bin/bash
+  SwiftLint:
+    buildScripts:
+       - script: |
+                 scripts/executeSwiftLint.sh
+         name: "SwiftLint"
+         shell: /bin/bash
+         
+targets:
+        
+  CryptoPulse:
+    type: application
+    platform: iOS
+    
+    scheme:
+      testTargets:
+        - UnitTests
+       # - UITests
+        
+    settings:
+      base:
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: YES
+        TARGETED_DEVICE_FAMILY: 1
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+                  
+    configFiles:
+      Debug: ../Configuration/debug.xcconfig
+      Release: ../Configuration/release.xcconfig
+                  
+    sources:
+       - path: ../CryptoPulse
+         type: group
+         excludes:
+           - "*.md"
+           - "*.png"
+
+
+  UnitTests:
+    templates:
+      - UnitTest
+    sources:
+      - path: ../CryptoPulseTests
+        excludes: [Info.plist]
+    dependencies:
+      - sdk: XCTest.framework
+      - target: CryptoPulse
+        link: true

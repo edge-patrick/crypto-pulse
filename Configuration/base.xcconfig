@@ -1,0 +1,11 @@
+//
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+//
+
+#include "./product-version.xcconfig"
+#include "./pods"
+
+FRAMEWORK_SEARCH_PATHS = $(inherited)
+CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES
+GENERATE_INFOPLIST_FILE = YES

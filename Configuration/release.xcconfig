@@ -1,0 +1,12 @@
+//
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+//
+
+#include "./dev-base.xcconfig"
+
+//DEVELOPMENT_TEAM = XXXXXXXXXX
+//PROVISIONING_PROFILE_SPECIFIER = XXXXXXXXXX/yyyyyyyy
+CODE_SIGN_IDENTITY = iPhone Distribution
+API_KEY = YOUR_API_KEY
+TARGET_ENVIRONMENT = release
